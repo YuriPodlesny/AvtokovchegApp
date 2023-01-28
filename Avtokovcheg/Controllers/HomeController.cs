@@ -11,6 +11,8 @@ namespace Avtokovcheg.Controllers
             return View();
         }
 
+        
+
         public IActionResult Privacy()
         {
             return View();
