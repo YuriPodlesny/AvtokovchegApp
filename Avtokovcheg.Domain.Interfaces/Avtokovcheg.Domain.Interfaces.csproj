@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AvtokovchegApp.Domain\AvtokovchegApp.Domain.Core.csproj" />
+  </ItemGroup>
+
 </Project>

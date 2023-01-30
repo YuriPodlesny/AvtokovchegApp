@@ -16,6 +16,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C0F32A5E-DB88-4E8B-999B-E6F817B0BC50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvtokovchegApp.Infrastructure.Data", "AvtokovchegApp.Infrastructure.Data\AvtokovchegApp.Infrastructure.Data.csproj", "{A49085B0-753F-4A0D-8D89-6C2C54D20300}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2157861F-9C50-4BFD-B812-256FF6A1D28B} = {2157861F-9C50-4BFD-B812-256FF6A1D28B}
+		{28F70982-3BD4-4DE8-AAAA-25C3CC4DF360} = {28F70982-3BD4-4DE8-AAAA-25C3CC4DF360}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvtokovchegApp.Infrastructure.Business", "AvtokovchegApp.Infrastructure.Business\AvtokovchegApp.Infrastructure.Business.csproj", "{B235BE4F-8B8F-4DFC-BC57-AC94AF7A3DC0}"
 EndProject
