@@ -1,9 +1,10 @@
-﻿namespace AvtokovchegApp.Domain
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AvtokovchegApp.Domain
 {
     public class ParkingSpace
     {
-        public int Id { get; set; }
-        
+        [Key]
         public int Namber { get; set; }
         public bool IsFree { get; set; } = false;
     }

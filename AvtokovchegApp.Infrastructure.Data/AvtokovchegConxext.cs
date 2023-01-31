@@ -11,13 +11,14 @@ namespace AvtokovchegApp.Infrastructure.Data
         public AvtokovchegConxext(DbContextOptions<AvtokovchegConxext> options)
             : base(options)
         {
-            //Database.EnsureDeleted();
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ParkingSpace>().HasData(CreateParkingSpace()) ;
+            modelBuilder.Entity<ParkingSpace>().HasData(CreateParkingSpace());
+            modelBuilder.Entity<ParkingSpace>().HasKey(p => p.Namber);
         }
 
         public DbSet<ParkingSpace> ParkingSpaces { get; set; } = null!;
@@ -30,9 +31,9 @@ namespace AvtokovchegApp.Infrastructure.Data
             var parkingSpaces = new ParkingSpace[countSpace];
             for (int i = 0; i < countSpace; i++)
             {
-                parkingSpaces[i] = new ParkingSpace { Id= i+1,  Namber = i+1};   
+                parkingSpaces[i] = new ParkingSpace { Namber = i + 1 };
             }
             return parkingSpaces;
-        } 
+        }
     }
 }
