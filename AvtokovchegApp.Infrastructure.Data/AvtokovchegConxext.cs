@@ -11,15 +11,13 @@ namespace AvtokovchegApp.Infrastructure.Data
         public AvtokovchegConxext(DbContextOptions<AvtokovchegConxext> options)
             : base(options)
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ParkingSpace>().HasData(
-                CreateParkingSpace()
-                ) ;
+            modelBuilder.Entity<ParkingSpace>().HasData(CreateParkingSpace()) ;
         }
 
         public DbSet<ParkingSpace> ParkingSpaces { get; set; } = null!;
