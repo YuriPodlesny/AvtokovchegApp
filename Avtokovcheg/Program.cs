@@ -18,6 +18,7 @@ namespace Avtokovcheg
 
             var app = builder.Build();
             app.MapGet("/", (AvtokovchegConxext db) => db.ParkingSpaces.ToList());
+
             //// Configure the HTTP request pipeline.
             //if (!app.Environment.IsDevelopment())
             //{
