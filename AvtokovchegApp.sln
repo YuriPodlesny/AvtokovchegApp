@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvtokovchegApp", "Avtokovcheg\AvtokovchegApp.csproj", "{263EE4BA-3B88-4B0C-97E3-96BA80AD4E63}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A49085B0-753F-4A0D-8D89-6C2C54D20300} = {A49085B0-753F-4A0D-8D89-6C2C54D20300}
+		{B235BE4F-8B8F-4DFC-BC57-AC94AF7A3DC0} = {B235BE4F-8B8F-4DFC-BC57-AC94AF7A3DC0}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{21D5CC4E-8B87-4C62-854D-7EF0C5367F40}"
 EndProject

@@ -18,7 +18,7 @@ namespace Avtokovcheg.Controllers
         {
             var parkingSpase = await _parkingSpace.GetParkingSpacesToArray();
 
-            return PartialView(parkingSpase);
+            return PartialView("_ParkingSpace", parkingSpase);
         }
 
 
