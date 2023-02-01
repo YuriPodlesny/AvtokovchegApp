@@ -13,6 +13,11 @@ namespace AvtokovchegApp.Infrastructure.Data
     {
         private readonly AvtokovchegConxext db;
 
+        public ParkingSpaceRepository(AvtokovchegConxext db)
+        {
+            this.db = db;
+        }
+
         public void EditParkingSpace(ParkingSpace parkingSpace)
         {
             db.Entry(parkingSpace).State = EntityState.Modified;
@@ -23,9 +28,9 @@ namespace AvtokovchegApp.Infrastructure.Data
             return db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
         }
 
-        public Task<ParkingSpace[]> GetParkingSpacesToArray()
+        public ParkingSpace[] GetParkingSpacesToArray()
         {
-            return db.ParkingSpaces.ToArrayAsync();
+            return db.ParkingSpaces.ToArray();
         }
 
 

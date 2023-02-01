@@ -14,15 +14,14 @@ namespace Avtokovcheg.Controllers
             _parkingSpace = parkingSpace;
         }
 
-        public async Task<IActionResult> ParkingSpace()
-        {
-            var parkingSpase = await _parkingSpace.GetParkingSpacesToArray();
+        //public async Task<IActionResult> ParkingSpace()
+        //{
+        //    var parkingSpace = await _parkingSpace.GetParkingSpacesToArray();
+        //    return PartialView("_ParkingSpace", parkingSpace);
+        //}
 
-            return PartialView("_ParkingSpace", parkingSpase);
-        }
 
-
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
@@ -36,6 +35,12 @@ namespace Avtokovcheg.Controllers
         public async Task<IActionResult> Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _parkingSpace.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
