@@ -1,7 +1,6 @@
 ﻿using Avtokovcheg.Domain.Interfaces;
 using AvtokovchegApp.Domain;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Components
 {
@@ -14,9 +13,10 @@ namespace AvtokovchegApp.Components
             _parkingSpace = parkingSpace;
         }
 
-        public ParkingSpace[] Invoke()
+        public IViewComponentResult Invoke()
         {
-            return _parkingSpace.GetParkingSpacesToArray();
+            var parkingSpace = _parkingSpace.GetParkingSpacesToArray();
+            return View(parkingSpace);
         }
     }
 }
