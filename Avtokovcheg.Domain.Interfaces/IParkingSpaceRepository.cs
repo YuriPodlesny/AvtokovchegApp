@@ -5,8 +5,9 @@ namespace Avtokovcheg.Domain.Interfaces
 {
     public interface IParkingSpaceRepository : IDisposable
     {
-        ParkingSpace[] GetParkingSpacesToArray();
+        Task<ParkingSpace[]> GetParkingSpacesToArray();
         Task<ParkingSpace> GetParkingSpace(int namber);
         void EditParkingSpace(ParkingSpace parkingSpace);
+        ParkingSpace[] GetParkingSpaceFloor(int floor);
     }
 }

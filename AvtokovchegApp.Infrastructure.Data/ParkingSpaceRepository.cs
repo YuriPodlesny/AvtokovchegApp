@@ -17,23 +17,6 @@ namespace AvtokovchegApp.Infrastructure.Data
         {
             this.db = db;
         }
-
-        public void EditParkingSpace(ParkingSpace parkingSpace)
-        {
-            db.Entry(parkingSpace).State = EntityState.Modified;
-        }
-
-        public Task<ParkingSpace> GetParkingSpace(int namber)
-        {
-            return db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
-        }
-
-        public ParkingSpace[] GetParkingSpacesToArray()
-        {
-            return db.ParkingSpaces.ToArray();
-        }
-
-
         #region Dispose
         private bool disposed = false;
 
@@ -55,5 +38,24 @@ namespace AvtokovchegApp.Infrastructure.Data
             GC.SuppressFinalize(this);
         }
         #endregion
+        public void EditParkingSpace(ParkingSpace parkingSpace)
+        {
+            db.Entry(parkingSpace).State = EntityState.Modified;
+        }
+
+        public Task<ParkingSpace> GetParkingSpace(int namber)
+        {
+            return db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
+        }
+
+        public Task<ParkingSpace[]> GetParkingSpacesToArray()
+        {
+            return db.ParkingSpaces.ToArrayAsync();
+        }
+        public ParkingSpace[] GetParkingSpaceFloor(int floor)
+        {
+            return db.ParkingSpaces.Where(p=> p.Floor == floor).ToArray();
+        }
+
     }
 }

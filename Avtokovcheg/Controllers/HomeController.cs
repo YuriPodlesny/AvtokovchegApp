@@ -14,13 +14,6 @@ namespace Avtokovcheg.Controllers
             _parkingSpace = parkingSpace;
         }
 
-        //public async Task<IActionResult> ParkingSpace()
-        //{
-        //    var parkingSpace = await _parkingSpace.GetParkingSpacesToArray();
-        //    return PartialView("_ParkingSpace", parkingSpace);
-        //}
-
-
         public IActionResult Index()
         {
             return View();
