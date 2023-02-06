@@ -2,11 +2,6 @@
 
 <div class="container">
     <div>
-        @*@foreach (var item in Model)
-        {
-            <span>@item.Namber</span>
-        }*@
-
         @for (int i = 0; i < 21; i++)
         {
             <a class="btn btn-light btn-sm" role="button">@Model[i].Namber</a>
@@ -28,6 +23,5 @@
         {
             <a class="btn btn-light btn-sm" role="button">@Model[i].Namber</a>
         }
-
     </div>
 </div>
