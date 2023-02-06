@@ -2,9 +2,32 @@
 
 <div class="container">
     <div>
-        @foreach (var item in Model)
+        @*@foreach (var item in Model)
         {
             <span>@item.Namber</span>
+        }*@
+
+        @for (int i = 0; i < 21; i++)
+        {
+            <a class="btn btn-light btn-sm" role="button">@Model[i].Namber</a>
         }
+        <br />
+        <br />
+        @for (int i = 21; i < 41; i++)
+        {
+            <a class="btn btn-light btn-sm" role="button">@Model[i].Namber</a>
+        }
+        <br />
+        @for (int i = 41; i < 61; i++)
+        {
+            <a class="btn btn-light btn-sm" role="button">@Model[i].Namber</a>
+        }
+        <br />
+        <br />
+        @for (int i = 61; i < 81; i++)
+        {
+            <a class="btn btn-light btn-sm" role="button">@Model[i].Namber</a>
+        }
+
     </div>
 </div>

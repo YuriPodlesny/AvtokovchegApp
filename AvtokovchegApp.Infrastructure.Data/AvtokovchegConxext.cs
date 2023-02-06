@@ -31,21 +31,19 @@ namespace AvtokovchegApp.Infrastructure.Data
             var parkingSpaces = new ParkingSpace[countSpace];
             for (int i = 0; i < countSpace; i++)
             {
-                if (i <= 81 + 1)
-                    parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 1 };
-                if (i > 81 + 1 && i <= 162 + 1)
+                if (i < 81)
                     parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 2 };
-                if (i > 162 + 1 && i <= 243 + 1)
+                if (i >= 81 && i < 162)
                     parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 3 };
-                if (i > 243 + 1 && i <= 243 + 1)
+                if (i >= 162 && i < 243)
                     parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 4 };
-                if (i > 162 + 1 && i <= 324 + 1)
+                if (i >= 243 && i < 324)
                     parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 5 };
-                if (i > 324 + 1 && i <= 405 + 1)
+                if (i >= 324 && i < 405)
                     parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 6 };
-                if (i > 405 + 1 && i <= 486 + 1)
+                if (i >= 405 && i < 486)
                     parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 7 };
-                if (i > 486 + 1 && i <= 567 + 1)
+                if (i >= 486 && i < 567)
                     parkingSpaces[i] = new ParkingSpace { Namber = i + 1, Floor = 8 };
             }
             return parkingSpaces;
