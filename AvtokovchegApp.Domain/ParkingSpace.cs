@@ -6,7 +6,7 @@ namespace AvtokovchegApp.Domain
     {
         [Key]
         public int Namber { get; set; }
-        public bool IsFree { get; set; } = false;
+        public bool IsFree { get; set; } = true;
         public int Floor { get; set; }
     }
 }

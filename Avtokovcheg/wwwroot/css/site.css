@@ -50,3 +50,7 @@ body {
     overflow-y: auto;
     margin-right: 5px;
 }
+
+.btn-style-space {
+    width: 45px;
+}
