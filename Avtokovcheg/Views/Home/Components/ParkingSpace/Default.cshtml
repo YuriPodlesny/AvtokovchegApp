@@ -1,0 +1,60 @@
+﻿@model AvtokovchegApp.Domain.ParkingSpace[]
+
+<div class="container">
+    <div>
+        <h4>
+            Выберите место
+        </h4>
+    </div>
+    <div>
+        @for (int i = 0; i < 21; i++)
+        {
+            if (Model[i].IsFree == false)
+            {
+                <a id="space" class="btn btn-light btn-sm btn-style-space" onclick="return false" role="button">@Model[i].Namber</a>
+            }
+            else
+            {
+                <a id="space" class="btn btn-secondary btn-sm btn-style-space" role="button">@Model[i].Namber</a>
+            }
+        }
+        <br />
+        <br />
+        @for (int i = 21; i < 41; i++)
+        {
+            if (Model[i].IsFree == false)
+            {
+                <a id="space" class="btn btn-light btn-sm btn-style-space" onclick="return false" role="button">@Model[i].Namber</a>
+            }
+            else
+            {
+                <a id="space" class="btn btn-secondary btn-sm btn-style-space" role="button">@Model[i].Namber</a>
+            }
+        }
+        <br />
+        @for (int i = 41; i < 61; i++)
+        {
+            if (Model[i].IsFree == false)
+            {
+                <a id="space" class="btn btn-light btn-sm btn-style-space" onclick="return false" role="button">@Model[i].Namber</a>
+            }
+            else
+            {
+                <a id="space" class="btn btn-secondary btn-sm btn-style-space" role="button">@Model[i].Namber</a>
+            }
+        }
+        <br />
+        <br />
+        @for (int i = 61; i < 81; i++)
+        {
+            if (Model[i].IsFree == false)
+            {
+                <a id="space" class="btn btn-light btn-sm btn-style-space" onclick="return false" role="button">@Model[i].Namber</a>
+            }
+            else
+            {
+                <a id="space" class="btn btn-secondary btn-sm btn-style-space" role="button">@Model[i].Namber</a>
+            }
+        }
+    </div>
+</div>

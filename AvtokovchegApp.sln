@@ -4,22 +4,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvtokovchegApp", "Avtokovcheg\AvtokovchegApp.csproj", "{263EE4BA-3B88-4B0C-97E3-96BA80AD4E63}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A49085B0-753F-4A0D-8D89-6C2C54D20300} = {A49085B0-753F-4A0D-8D89-6C2C54D20300}
+		{B235BE4F-8B8F-4DFC-BC57-AC94AF7A3DC0} = {B235BE4F-8B8F-4DFC-BC57-AC94AF7A3DC0}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{21D5CC4E-8B87-4C62-854D-7EF0C5367F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvtokovchegApp.Domain.Core", "AvtokovchegApp.Domain\AvtokovchegApp.Domain.Core.csproj", "{28F70982-3BD4-4DE8-AAAA-25C3CC4DF360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvtokovchegApp.Domain.Core", "AvtokovchegApp.Domain\AvtokovchegApp.Domain.Core.csproj", "{28F70982-3BD4-4DE8-AAAA-25C3CC4DF360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avtokovcheg.Domain.Interfaces", "Avtokovcheg.Domain.Interfaces\Avtokovcheg.Domain.Interfaces.csproj", "{2157861F-9C50-4BFD-B812-256FF6A1D28B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avtokovcheg.Domain.Interfaces", "Avtokovcheg.Domain.Interfaces\Avtokovcheg.Domain.Interfaces.csproj", "{2157861F-9C50-4BFD-B812-256FF6A1D28B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F94BA8BA-EDF7-44A0-954C-572BE0C2241C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C0F32A5E-DB88-4E8B-999B-E6F817B0BC50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvtokovchegApp.Infrastructure.Data", "AvtokovchegApp.Infrastructure.Data\AvtokovchegApp.Infrastructure.Data.csproj", "{A49085B0-753F-4A0D-8D89-6C2C54D20300}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvtokovchegApp.Infrastructure.Data", "AvtokovchegApp.Infrastructure.Data\AvtokovchegApp.Infrastructure.Data.csproj", "{A49085B0-753F-4A0D-8D89-6C2C54D20300}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2157861F-9C50-4BFD-B812-256FF6A1D28B} = {2157861F-9C50-4BFD-B812-256FF6A1D28B}
+		{28F70982-3BD4-4DE8-AAAA-25C3CC4DF360} = {28F70982-3BD4-4DE8-AAAA-25C3CC4DF360}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvtokovchegApp.Infrastructure.Business", "AvtokovchegApp.Infrastructure.Business\AvtokovchegApp.Infrastructure.Business.csproj", "{B235BE4F-8B8F-4DFC-BC57-AC94AF7A3DC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvtokovchegApp.Infrastructure.Business", "AvtokovchegApp.Infrastructure.Business\AvtokovchegApp.Infrastructure.Business.csproj", "{B235BE4F-8B8F-4DFC-BC57-AC94AF7A3DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvtokovchegApp.Services.Interfaces", "AvtokovchegApp.Services.Interfaces\AvtokovchegApp.Services.Interfaces.csproj", "{3CACB83D-9007-408B-8769-054CFBB5D9C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvtokovchegApp.Services.Interfaces", "AvtokovchegApp.Services.Interfaces\AvtokovchegApp.Services.Interfaces.csproj", "{3CACB83D-9007-408B-8769-054CFBB5D9C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

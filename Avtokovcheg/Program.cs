@@ -1,3 +1,8 @@
+using Avtokovcheg.Domain.Interfaces;
+using AvtokovchegApp.Domain;
+using AvtokovchegApp.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Avtokovcheg
 {
     public class Program
@@ -6,10 +11,16 @@ namespace Avtokovcheg
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            string connection = builder.Configuration.GetConnectionString("AvtokovchegDatabase");
+            builder.Services.AddDbContext<AvtokovchegConxext>(options => options.UseNpgsql(connection));
+
+            builder.Services.AddScoped<IParkingSpaceRepository, ParkingSpaceRepository>();
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+            //app.MapGet("/", (AvtokovchegConxext db) => db.ParkingSpaces.ToList());
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

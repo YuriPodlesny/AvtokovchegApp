@@ -2,13 +2,12 @@
     ViewData["Title"] = "Автоковчег";
 }
 
-
 <p class="text-danger">
     Пожалуйста уважайте друг друга!<n />
     Старайтесь оплачивать паркинг заранее, чтобы не создавать затор на выезде.
 </p>
 
-
+@await Html.PartialAsync("_ParkingSpace")
 
 <div class="container">
     <h3>Посуточная парковка</h3>
