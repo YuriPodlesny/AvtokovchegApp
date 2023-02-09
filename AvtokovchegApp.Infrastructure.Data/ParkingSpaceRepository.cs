@@ -11,9 +11,9 @@ namespace AvtokovchegApp.Infrastructure.Data
 {
     public class ParkingSpaceRepository : IParkingSpaceRepository
     {
-        private readonly AvtokovchegConxext db;
+        private readonly AvtokovchegContext db;
 
-        public ParkingSpaceRepository(AvtokovchegConxext db)
+        public ParkingSpaceRepository(AvtokovchegContext db)
         {
             this.db = db;
         }

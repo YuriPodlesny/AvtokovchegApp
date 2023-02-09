@@ -1,30 +1,23 @@
 ﻿using AvtokovchegApp.Domain;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AvtokovchegApp.Infrastructure.Data
+namespace AvtokovchegApp.Infrastructure.Data.ConfigurationsContext
 {
-    public class AvtokovchegConxext : DbContext
+    public class ParkingSpaceConfiguration : IEntityTypeConfiguration<ParkingSpace>
     {
-
-        public AvtokovchegConxext(DbContextOptions<AvtokovchegConxext> options)
-            : base(options)
+        public void Configure(EntityTypeBuilder<ParkingSpace> builder)
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
+            builder.HasData(CreateParkingSpace());
+            builder.HasKey(p => p.Namber);
+
+            
         }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ParkingSpace>().HasData(CreateParkingSpace());
-            modelBuilder.Entity<ParkingSpace>().HasKey(p => p.Namber);
-        }
-
-        public DbSet<ParkingSpace> ParkingSpaces { get; set; } = null!;
-
-
-
         private ParkingSpace[] CreateParkingSpace()
         {
             int countSpace = 567;

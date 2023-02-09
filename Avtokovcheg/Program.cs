@@ -12,7 +12,7 @@ namespace Avtokovcheg
             var builder = WebApplication.CreateBuilder(args);
 
             string connection = builder.Configuration.GetConnectionString("AvtokovchegDatabase");
-            builder.Services.AddDbContext<AvtokovchegConxext>(options => options.UseNpgsql(connection));
+            builder.Services.AddDbContext<AvtokovchegContext>(options => options.UseNpgsql(connection));
 
             builder.Services.AddScoped<IParkingSpaceRepository, ParkingSpaceRepository>();
 
