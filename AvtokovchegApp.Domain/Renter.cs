@@ -12,6 +12,7 @@ namespace AvtokovchegApp.Domain.Core
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public string Surname { get; set; }
+        public string PhoneNamber { get; set; }
 
         public List<ParkingSpace> ParkingSpaces { get; set; } = new ();
         public List<Request> Requests { get; set; } = new ();

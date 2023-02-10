@@ -1,5 +1,5 @@
 ﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain;
+using AvtokovchegApp.Domain.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvtokovchegApp.Infrastructure.Data
+namespace AvtokovchegApp.Infrastructure.Data.Repository
 {
-    public class ParkingSpaceRepository : IParkingSpaceRepository
+    public class AgreementRepository : IAgreementRepository
     {
         private readonly AvtokovchegContext db;
-
-        public ParkingSpaceRepository(AvtokovchegContext db)
+        public AgreementRepository(AvtokovchegContext db)
         {
             this.db = db;
         }
+
+        public void Delete(Agreement agreement)
+        {
+            db.Agreements.Remove(agreement);
+        }
+
         #region Dispose
         private bool disposed = false;
 
@@ -38,24 +43,15 @@ namespace AvtokovchegApp.Infrastructure.Data
             GC.SuppressFinalize(this);
         }
         #endregion
-        public void EditParkingSpace(ParkingSpace parkingSpace)
+
+        public void Update(Agreement agreement)
         {
-            db.Entry(parkingSpace).State = EntityState.Modified;
+            db.Entry(agreement).State = EntityState.Modified;
         }
 
-        public Task<ParkingSpace> GetParkingSpace(int namber)
+        public void Create(Agreement agreement)
         {
-            return db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
+            db.Agreements.AddAsync(agreement);
         }
-
-        public Task<ParkingSpace[]> GetParkingSpacesToArray()
-        {
-            return db.ParkingSpaces.ToArrayAsync();
-        }
-        public ParkingSpace[] GetParkingSpaceFloor(int floor)
-        {
-            return db.ParkingSpaces.Where(p=> p.Floor == floor).ToArray();
-        }
-
     }
 }

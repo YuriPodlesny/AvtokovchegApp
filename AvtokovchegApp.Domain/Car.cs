@@ -12,7 +12,6 @@ namespace AvtokovchegApp.Domain.Core
         public string CarBrand { get; set; }
         public string CarModel { get; set; }
         public string? Namber { get; set; }
-        public string? VIN { get; set; }
 
         public int RenterId { get; set;}
         public Renter? Renter { get; set; }

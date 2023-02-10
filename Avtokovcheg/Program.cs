@@ -1,6 +1,7 @@
 using Avtokovcheg.Domain.Interfaces;
 using AvtokovchegApp.Domain;
 using AvtokovchegApp.Infrastructure.Data;
+using AvtokovchegApp.Infrastructure.Data.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace Avtokovcheg

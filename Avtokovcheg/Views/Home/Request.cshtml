@@ -1,0 +1,39 @@
+﻿@model AvtokovchegApp.Domain.ParkingSpace
+
+<h2>Заполните заявку для аренды парковочного места @Model.Namber</h2>
+
+
+@using (Html.BeginForm("Request", "Home", FormMethod.Post))
+{
+    <input type="hidden" value="@Model.Namber" name="Namber" />
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label class="form-label">Имя</label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Фамилия</label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Отчество</label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Марка автомобиля</label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Модель автомобиля</label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Номер автомобиля</label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Номер телефона</label>
+            <input type="tel" class="form-control" />
+        </div>
+    </div>
+}
