@@ -38,19 +38,20 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             GC.SuppressFinalize(this);
         }
         #endregion
-        public void EditParkingSpace(ParkingSpace parkingSpace)
+        public async void EditParkingSpace(ParkingSpace parkingSpace)
         {
             db.Entry(parkingSpace).State = EntityState.Modified;
+            await db.SaveChangesAsync();
         }
 
-        public Task<ParkingSpace> GetParkingSpace(int namber)
+        public async Task<ParkingSpace> GetParkingSpace(int namber)
         {
-            return db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
+            return await db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
         }
 
-        public Task<ParkingSpace[]> GetParkingSpacesToArray()
+        public async Task<ParkingSpace[]> GetParkingSpacesToArray()
         {
-            return db.ParkingSpaces.ToArrayAsync();
+            return await db.ParkingSpaces.ToArrayAsync();
         }
         public ParkingSpace[] GetParkingSpaceFloor(int floor)
         {

@@ -9,8 +9,8 @@ namespace Avtokovcheg.Domain.Interfaces
     public interface IBaseRepository<T> : IDisposable
         where T : class
     {
-        T CreateAsync();
-        Task DeleteAsync();
-        Task<T> UpdateAsync(T entity);
+        void Create(T entety);
+        void Delete(T entity);
+        void Update(T entity);
     }
 }

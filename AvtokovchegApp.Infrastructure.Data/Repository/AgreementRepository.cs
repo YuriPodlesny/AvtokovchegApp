@@ -17,9 +17,10 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             this.db = db;
         }
 
-        public void Delete(Agreement agreement)
+        public async void Delete(Agreement agreement)
         {
             db.Agreements.Remove(agreement);
+            await db.SaveChangesAsync();
         }
 
         #region Dispose
@@ -44,14 +45,16 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
         }
         #endregion
 
-        public void Update(Agreement agreement)
+        public async void Update(Agreement agreement)
         {
             db.Entry(agreement).State = EntityState.Modified;
+            await db.SaveChangesAsync();
         }
 
-        public void Create(Agreement agreement)
+        public async void Create(Agreement agreement)
         {
-            db.Agreements.AddAsync(agreement);
+            await db.Agreements.AddAsync(agreement);
+            await db.SaveChangesAsync();
         }
     }
 }
