@@ -36,9 +36,9 @@ namespace Avtokovcheg.Controllers
         }
 
         [HttpGet]
-        public IActionResult Request(int Namber)
+        public IActionResult Request(int namber)
         {
-            var parkingSpace = _parkingSpace.GetParkingSpace(Namber);
+            var parkingSpace = _parkingSpace.GetParkingSpace(namber);
             return View(parkingSpace);
         }
 

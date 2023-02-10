@@ -1,4 +1,5 @@
-﻿using AvtokovchegApp.Domain.Core;
+﻿using Avtokovcheg.Domain.Interfaces;
+using AvtokovchegApp.Domain.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Infrastructure.Data.Repository
 {
-    public class CarRepository
+    public class CarRepository : ICarRepository
     {
         private readonly AvtokovchegContext db;
         public CarRepository(AvtokovchegContext db)
@@ -16,9 +17,10 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             this.db = db;
         }
 
-        public void Delete(Car car)
+        public async void Delete(Car car)
         {
             db.Cars.Remove(car);
+            await db.SaveChangesAsync();
         }
 
         #region Dispose
@@ -43,14 +45,16 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
         }
         #endregion
 
-        public void Update(Car car)
+        public async void Update(Car car)
         {
             db.Entry(car).State = EntityState.Modified;
+            await db.SaveChangesAsync();
         }
 
-        public void Create(Car car)
+        public async void Create(Car car)
         {
-            db.Cars.AddAsync(car);
+            await db.Cars.AddAsync(car);
+            await db.SaveChangesAsync();
         }
     }
 }

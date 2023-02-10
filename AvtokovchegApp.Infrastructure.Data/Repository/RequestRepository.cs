@@ -17,9 +17,10 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             this.db = db;
         }
 
-        public void Delete(Request request)
+        public async void Delete(Request request)
         {
             db.Requests.Remove(request);
+            await db.SaveChangesAsync();
         }
 
         #region Dispose
@@ -44,14 +45,16 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
         }
         #endregion
 
-        public void Update(Request request)
+        public async void Update(Request request)
         {
             db.Entry(request).State = EntityState.Modified;
+            await db.SaveChangesAsync();
         }
 
-        public void Create(Request request)
+        public async void Create(Request request)
         {
-            db.Requests.AddAsync(request);
+            await db.Requests.AddAsync(request);
+            await db.SaveChangesAsync();
         }
     }
 }

@@ -16,6 +16,11 @@ namespace Avtokovcheg
             builder.Services.AddDbContext<AvtokovchegContext>(options => options.UseNpgsql(connection));
 
             builder.Services.AddScoped<IParkingSpaceRepository, ParkingSpaceRepository>();
+            builder.Services.AddScoped<IAgreementRepository, AgreementRepository>();
+            builder.Services.AddScoped<ICarRepository, CarRepository>();
+            builder.Services.AddScoped<IHolderCarRepository, HolderCarRepository>();
+            builder.Services.AddScoped<IRenterRepository, RenterRepository>();
+            builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
