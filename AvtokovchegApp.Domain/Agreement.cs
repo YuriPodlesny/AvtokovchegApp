@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Domain.Core
 {
-    public class Agreement
+    public class Agreement : BaseClass
     {
         public int Id { get; set; }
         public string NamberAgreement { get; set; }

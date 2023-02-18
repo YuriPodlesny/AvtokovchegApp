@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Domain.Core
 {
-    public class Request : BaseClass
+    public class BaseClass
     {
-        public DateTime CreatedAt { get; set; }
-
-        public int RenterId { get; set; }
-        public Renter? Renter { get; set; }
+        public int Id { get; set; }
     }
 }

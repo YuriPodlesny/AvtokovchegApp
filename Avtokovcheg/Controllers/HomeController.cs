@@ -30,59 +30,63 @@ namespace Avtokovcheg.Controllers
             _request = request;
         }
 
-        public IActionResult Index()
+        public  IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult Request(int namber)
+        public async Task<IActionResult> Request(int namber)
         {
-            var parkingSpace = _parkingSpace.GetParkingSpace(namber);
-            return View(parkingSpace);
+            
+            var parkingSpace = await _parkingSpace.GetParkingSpace(namber);
+            ViewBag.parkingSpace = parkingSpace;
+
+            return View();
         }
 
         [HttpPost]
-        public async void Request(RequestViewModel requestViewModel)
+        public async Task<IActionResult> Request(RequestViewModel requestViewModel)
         {
             if (ModelState.IsValid)
             {
-                Renter renter = new Renter
+                _renter.Create( new Renter
                 {
                     Name = requestViewModel.Renter.Name,
                     Patronymic = requestViewModel.Renter.Patronymic,
                     Surname = requestViewModel.Renter.Surname,
                     PhoneNamber = requestViewModel.Renter.PhoneNamber
-                };
-                _renter.Create(renter);
+                });
+                
 
-                HolderCar holderCar = new HolderCar
+                _holderCar.Create(new HolderCar
                 {
                     Name = requestViewModel.Renter.Name,
                     Patronymic = requestViewModel.Holder.Patronymic,
                     Surname = requestViewModel.Holder.Surname
-                };
-                _holderCar.Create(holderCar);
+                });
+                
 
-                Car car = new Car
+                _car.Create(new Car
                 {
                     CarBrand = requestViewModel.Car.CarBrand,
                     CarModel = requestViewModel.Car.CarModel,
-                    Namber = requestViewModel.Car.Namber
-                };
-                _car.Create(car);
-
-                Request request = new Request
+                    Namber = requestViewModel.Car.Namber,
+                    RenterId = requestViewModel.Renter.Id,
+                    HolderCarId = requestViewModel.Holder.Id
+                });
+                
+                _request.Create(new Request
                 {
                     CreatedAt = DateTime.Now,
-                };
-                _request.Create(request);
+                    RenterId = requestViewModel.Renter.Id
+                });
+                
+                _parkingSpace.UpdateFree(requestViewModel.ParkingSpaceId);
 
-                ParkingSpace parkingSpace = await _parkingSpace.GetParkingSpace(requestViewModel.ParkingSpace);
-                parkingSpace.IsFree = false;
-                _parkingSpace.EditParkingSpace(parkingSpace);
-
+                return RedirectToAction("Index");
             }
+            return View();
         }
 
         public IActionResult Privacy()

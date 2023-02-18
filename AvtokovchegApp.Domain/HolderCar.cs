@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Domain.Core
 {
-    public class HolderCar
+    public class HolderCar : BaseClass
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public string Surname { get; set; }

@@ -58,5 +58,11 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             return db.ParkingSpaces.Where(p => p.Floor == floor).ToArray();
         }
 
+        public async void UpdateFree(int nambeer)
+        {
+            var space = await GetParkingSpace(nambeer);
+            space.IsFree = false;
+            EditParkingSpace(space);
+        }
     }
 }

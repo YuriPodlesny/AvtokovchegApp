@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avtokovcheg.Domain.Interfaces
 {
-    public interface IRenterRepository : IBaseRepository<Renter>
+    public interface IRenterRepository
     {
     }
 }

@@ -8,6 +8,6 @@ namespace AvtokovchegApp.Models
         public Renter Renter { get; set; }
         public HolderCar Holder { get; set; }
         public Car Car { get; set; }
-        public int ParkingSpace { get; set; }
+        public int ParkingSpaceId { get; set; }
     }
 }

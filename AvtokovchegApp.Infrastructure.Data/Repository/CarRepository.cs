@@ -9,52 +9,10 @@ using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Infrastructure.Data.Repository
 {
-    public class CarRepository : ICarRepository
+    public class CarRepository : BaseRepository<Car>, ICarRepository
     {
-        private readonly AvtokovchegContext db;
-        public CarRepository(AvtokovchegContext db)
+        public CarRepository(AvtokovchegContext context) : base(context)
         {
-            this.db = db;
-        }
-
-        public async void Delete(Car car)
-        {
-            db.Cars.Remove(car);
-            await db.SaveChangesAsync();
-        }
-
-        #region Dispose
-        private bool disposed = false;
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (!disposed)
-            {
-                if (disposing)
-                {
-                    db.Dispose();
-                }
-            }
-            disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        #endregion
-
-        public async void Update(Car car)
-        {
-            db.Entry(car).State = EntityState.Modified;
-            await db.SaveChangesAsync();
-        }
-
-        public async void Create(Car car)
-        {
-            await db.Cars.AddAsync(car);
-            await db.SaveChangesAsync();
         }
     }
 }

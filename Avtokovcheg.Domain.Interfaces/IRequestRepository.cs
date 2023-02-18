@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avtokovcheg.Domain.Interfaces
 {
-    public interface IRequestRepository : IBaseRepository<Request>
+    public interface IRequestRepository
     {
     }
 }
