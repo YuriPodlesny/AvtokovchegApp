@@ -14,15 +14,6 @@ namespace AvtokovchegApp.Infrastructure.Data.ConfigurationsContext
     {
         public void Configure(EntityTypeBuilder<Car> builder)
         {
-            builder.HasOne(u => u.Renter)
-                .WithMany(c => c.Cars)
-                .HasForeignKey(u => u.RenterId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.HasOne(u => u.HolderCar)
-                .WithMany(c => c.Cars)
-                .HasForeignKey(u => u.HolderCarId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

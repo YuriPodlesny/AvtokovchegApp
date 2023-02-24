@@ -13,8 +13,8 @@ namespace AvtokovchegApp.Domain.Core
         public DateTime DateAgreement { get; set; }
         public int TimeAgreement { get; set; }
         
-        public int RenterId { get; set; }
-        public Renter? Renter { get; set; }
+        public int UserId { get; set; }
+        public User? User { get; set; }
 
         public int NamberId { get; set; }
         public ParkingSpace? ParkingSpace { get; set; }

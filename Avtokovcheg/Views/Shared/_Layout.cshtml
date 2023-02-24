@@ -27,6 +27,11 @@
                         </li>
                     </ul>
                 </div>
+                <div>
+                    @{
+                        await Html.RenderPartialAsync("_Authenticated");
+                    }
+                </div>
             </div>
         </nav>
     </header>
@@ -43,7 +48,7 @@
                     &copy; 2023 - Avtokovcheg - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                 </div>
                 <div class="col">
-                    @await Html.PartialAsync("_Contacts")
+                    @await Html.PartialAsync("../Home/_Contacts")
                 </div>
             </div>
             

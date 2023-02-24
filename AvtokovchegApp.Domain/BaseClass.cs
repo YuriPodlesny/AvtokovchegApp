@@ -8,6 +8,6 @@ namespace AvtokovchegApp.Domain.Core
 {
     public class BaseClass
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

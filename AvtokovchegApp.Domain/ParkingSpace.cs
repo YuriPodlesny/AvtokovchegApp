@@ -11,7 +11,7 @@ namespace AvtokovchegApp.Domain
         public bool IsFree { get; set; } = true;
         public int Floor { get; set; }
 
-        public List<Renter> Renters { get; set; } = new();
-        public List<Agreement> Agreements { get; set; } = new();
+        //public List<User> Users { get; set; } = new();
+        //public List<Agreement> Agreements { get; set; } = new();
     }
 }

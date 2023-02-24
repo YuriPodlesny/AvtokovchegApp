@@ -14,10 +14,7 @@ namespace AvtokovchegApp.Infrastructure.Data.ConfigurationsContext
     {
         public void Configure(EntityTypeBuilder<Request> builder)
         {
-            builder.HasOne(u => u.Renter)
-                .WithMany(c => c.Requests)
-                .HasForeignKey(u => u.RenterId)
-                .OnDelete(DeleteBehavior.Cascade);
+            
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿@model LoginViewModel
+
+
+<h2>Вход в личный кабинет</h2>
+
+<form method ="post" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="md-3">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div class="md-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <label asp-for="RememberMe" class="form-check-label"></label>
+        <input asp-for="RememberMe" class="form-check-input"/>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-primary" value="Войти" />
+    </div>
+</form>

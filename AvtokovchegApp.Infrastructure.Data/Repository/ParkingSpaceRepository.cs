@@ -44,23 +44,30 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             await db.SaveChangesAsync();
         }
 
-        public async Task<ParkingSpace> GetParkingSpace(int namber)
+        public ParkingSpace Get(int namber)
+        {
+            return db.ParkingSpaces.First(p => p.Namber == namber);
+        }
+
+        public async Task<ParkingSpace> GetAsync(int namber)
         {
             return await db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
         }
 
-        public async Task<ParkingSpace[]> GetParkingSpacesToArray()
+
+        public IEnumerable<ParkingSpace> GetAll()
         {
-            return await db.ParkingSpaces.ToArrayAsync();
+            return db.ParkingSpaces.AsQueryable();
         }
+
         public ParkingSpace[] GetParkingSpaceFloor(int floor)
         {
             return db.ParkingSpaces.Where(p => p.Floor == floor).ToArray();
         }
 
-        public async void UpdateFree(int nambeer)
+        public void UpdateFree(int nambeer)
         {
-            var space = await GetParkingSpace(nambeer);
+            var space = Get(nambeer);
             space.IsFree = false;
             EditParkingSpace(space);
         }

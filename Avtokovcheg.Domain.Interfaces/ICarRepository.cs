@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avtokovcheg.Domain.Interfaces
 {
-    public interface ICarRepository
+    public interface ICarRepository : IBaseRepository<Car>
     {
     }
 }

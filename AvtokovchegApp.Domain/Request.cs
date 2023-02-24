@@ -8,9 +8,17 @@ namespace AvtokovchegApp.Domain.Core
 {
     public class Request : BaseClass
     {
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        public int RenterId { get; set; }
-        public Renter? Renter { get; set; }
+        public string UserName { get; set; }
+        public string UserPatronymiс { get; set;}
+        public string UserSurname { get; set; }
+
+        public string? HolderName { get; set; }
+        public string? HolderPatronymiс { get; set; }
+        public string? HolderSurname { get; set; }
+
+        public string CarBrend { get; set; }
+        public string CarModel { get; set; }
     }
 }
