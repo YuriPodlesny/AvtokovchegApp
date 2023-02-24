@@ -100,32 +100,5 @@ namespace AvtokovchegApp.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
-
-
-
-        //[HttpPost]
-        //public async Task<IActionResult> Login(RegisterViewModel model)
-        //{
-        //    if (!ModelState.IsValid) 
-        //    { 
-        //        return View(model); 
-        //    }
-
-        //    var user = await _user.GetUserByName(model.PhoneNamber);
-        //    if(user == null) 
-        //    {
-        //        ModelState.AddModelError("", "User not found");
-        //        return View(model);
-        //    }
-
-        //    var result = await _user.SetCookies(model.PhoneNamber, model.Password);
-        //    if (result.Succeeded) 
-        //    {
-        //        return Redirect(model.ReturnUrl);
-        //    }
-
-        //    return View(model);
-        //}
     }
 }

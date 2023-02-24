@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AvtokovchegApp.Domain.Core.User>
+
+@{
+    ViewBag.Title = "Список пользователей";
+}
+
+<a asp-action="Create" class="btn btn-success">Добавить пользователя</a>
+
+<table class="table">
+    <tr><th>Имя</th><th>Фамилия</th><th>Отчество</th><th>Телефон</th></tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Surname</td>
+            <td>@user.Patronymic</td>
+            <td>@user.PhoneNumber</td>
+            <td>
+                <form method="post" asp-controller="User" asp-action="Delete" asp-route-data="@user.UserName">
+                    <a class="btn btn-primary" asp-controller="User" asp-action="Edit" asp-route-data="@user.UserName"></a>
+                    <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
