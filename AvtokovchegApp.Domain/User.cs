@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Domain.Core
 {
-    public class User : IdentityUser<Guid>
+    public class User : IdentityUser
     {
         public string Name { get; set; }
         public string Patronymic { get; set; }

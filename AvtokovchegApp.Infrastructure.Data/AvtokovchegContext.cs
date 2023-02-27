@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace AvtokovchegApp.Infrastructure.Data
 {
-    public class AvtokovchegContext : IdentityDbContext<User,ApplicationRole,Guid>
+    public class AvtokovchegContext : IdentityDbContext<User>
     {
 
         public AvtokovchegContext(DbContextOptions<AvtokovchegContext> options)
@@ -21,17 +21,16 @@ namespace AvtokovchegApp.Infrastructure.Data
         {
             modelBuilder.ApplyConfiguration(new ParkingSpaceConfiguration());
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<User>(b =>
-            //{
-            //    b.HasKey("UserId");
-            //});
         }
 
-        public DbSet<User> Users { get; set; } = null;
+        //public DbSet<User> Users { get; set; } = null;
         public DbSet<ParkingSpace> ParkingSpaces { get; set; } = null!;
         //public DbSet<Request> Requests { get; set; } = null!;
         //public DbSet<Car> Cars { get; set; } = null!;
         //public DbSet<HolderCar> HolderCars { get; set; } = null!;
         //public DbSet<Agreement> Agreements { get; set; } = null!;
+
+
+
     }
 }

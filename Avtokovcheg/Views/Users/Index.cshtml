@@ -16,8 +16,9 @@
             <td>@user.Patronymic</td>
             <td>@user.PhoneNumber</td>
             <td>
-                <form method="post" asp-controller="User" asp-action="Delete" asp-route-data="@user.UserName">
-                    <a class="btn btn-primary" asp-controller="User" asp-action="Edit" asp-route-data="@user.UserName"></a>
+                <form method="post" asp-controller="Users" asp-action="Delete" asp-route-userName="@user.UserName">
+                    <a class="btn btn-sm btn-primary" asp-controller="Users" asp-action="Edit" asp-route-userName="@user.UserName">Изменить</a>
+                    <a class="btn btn-sm btn-warning" asp-controller="Users" asp-action="ChangePassword" asp-route-userName="@user.UserName">Сменить пароль</a>
                     <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
                 </form>
             </td>

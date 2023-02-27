@@ -4,8 +4,9 @@
     ViewBag.Title = "Редактировать пользователя";
 }
 
-<form asp-controller="User" asp-action="Edit">
-    <div asp-validation-summary="All" class="text-danger"></div>
+<form asp-controller="Users" asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="UserName" value="@Model.UserName" />
     <div class="col-md-4">
         <label asp-for="Patronymic" class="form-label"></label>
         <input asp-for="Patronymic" class="form-control" />

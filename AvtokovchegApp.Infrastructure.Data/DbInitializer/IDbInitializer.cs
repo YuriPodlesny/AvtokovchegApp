@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvtokovchegApp.Domain.Core
+namespace AvtokovchegApp.Infrastructure.Data.DbInitializer
 {
-    public class BaseClass
+    public interface IDbInitializer
     {
-        public int Id { get; set; }
+        void Initialize();
     }
 }

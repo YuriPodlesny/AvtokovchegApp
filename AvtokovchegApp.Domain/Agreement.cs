@@ -8,7 +8,6 @@ namespace AvtokovchegApp.Domain.Core
 {
     public class Agreement : BaseClass
     {
-        public int Id { get; set; }
         public string NamberAgreement { get; set; }
         public DateTime DateAgreement { get; set; }
         public int TimeAgreement { get; set; }

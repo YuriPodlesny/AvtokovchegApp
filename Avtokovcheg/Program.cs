@@ -2,8 +2,11 @@ using Avtokovcheg.Domain.Interfaces;
 using AvtokovchegApp.Domain;
 using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Infrastructure.Data;
+using AvtokovchegApp.Infrastructure.Data.DbInitializer;
 using AvtokovchegApp.Infrastructure.Data.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
@@ -20,7 +23,7 @@ namespace Avtokovcheg
             {
                 options.UseNpgsql(connection);
             })
-                .AddIdentity<User, ApplicationRole>(options =>
+                .AddIdentity<User, IdentityRole>(options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequireUppercase = false;
@@ -36,28 +39,13 @@ namespace Avtokovcheg
             builder.Services.AddScoped<IHolderCarRepository, HolderCarRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IRequestRepository, RequestRepository>();
-
+            builder.Services.AddScoped<IDbInitializer, RoleInitializer>();
 
             builder.Services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/Admin/login";
                 options.AccessDeniedPath = "/Home/AccessDenied";
             });
-
-
-            builder.Services.AddAuthorization(options =>
-            {
-                options.AddPolicy("Administrator", builder =>
-                {
-                    builder.RequireClaim(ClaimTypes.Role, "Administrator");
-                });
-                options.AddPolicy("User", builder =>
-                {
-                    builder.RequireClaim(ClaimTypes.Role, "User");
-                });
-            });
-
-
 
             builder.Services.AddControllersWithViews();
 
@@ -73,7 +61,8 @@ namespace Avtokovcheg
             app.UseStaticFiles();
 
             app.UseRouting();
-            
+            SeedDatabase();
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -82,6 +71,15 @@ namespace Avtokovcheg
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+
+            void SeedDatabase()
+            {
+                using (var scrope = app.Services.CreateScope())
+                {
+                    var dbInitializer = scrope.ServiceProvider.GetRequiredService<IDbInitializer>();
+                    dbInitializer.Initialize();
+                }
+            }
         }
     }
 }

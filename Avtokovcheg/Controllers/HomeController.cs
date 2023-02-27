@@ -10,11 +10,11 @@ namespace Avtokovcheg.Controllers
 {
     public class HomeController : Controller
     {
-        IParkingSpaceRepository _parkingSpace;
-        ICarRepository _car;
-        IHolderCarRepository _holderCar;
-        IUserRepository _user;
-        IRequestRepository _request;
+        private readonly IParkingSpaceRepository _parkingSpace;
+        private readonly ICarRepository _car;
+        private readonly IHolderCarRepository _holderCar;
+        private readonly IUserRepository _user;
+        private readonly IRequestRepository _request;
 
         public HomeController(
             IParkingSpaceRepository parkingSpace,

@@ -24,12 +24,12 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             _context.Set<T>().AddAsync(entety);
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             _context.Set<Task<T?>>().Remove(Get(id));
         }
 
-        public async Task<T?> Get(Guid id)
+        public async Task<T?> Get(int id)
         {
             return await _context.Set<T>().FirstOrDefaultAsync(p => p.Id == id);
         }

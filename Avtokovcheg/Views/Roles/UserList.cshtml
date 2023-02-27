@@ -1,0 +1,15 @@
+﻿@model IEnumerable<AvtokovchegApp.Domain.Core.User>
+
+<h2>Список пользователей</h2>
+
+<table class="table">
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.PhoneNumber</td>
+            <td>
+                <a class="btn btn-sm btn-primary" asp-controller="Roles" asp-action="Edit" asp-route-userName="@user.PhoneNumber">Права доступа</a>
+            </td>
+        </tr>
+    }
+</table>
