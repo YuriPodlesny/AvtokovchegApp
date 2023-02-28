@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avtokovcheg.Domain.Interfaces
 {
-    public interface IAgreementRepository : IBaseRepository<Agreement>
+    public interface IAgreementRepository : IBaseRepository<СontractSpace>
     {
        
     }

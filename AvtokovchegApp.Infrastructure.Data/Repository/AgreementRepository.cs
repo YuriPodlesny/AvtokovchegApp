@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AvtokovchegApp.Infrastructure.Data.Repository
 {
-    public class AgreementRepository : BaseRepository<Agreement>, IAgreementRepository
+    public class AgreementRepository : BaseRepository<СontractSpace>, IAgreementRepository
     {
         public AgreementRepository(AvtokovchegContext context) : base(context)
         {

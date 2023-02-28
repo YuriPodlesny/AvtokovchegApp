@@ -47,7 +47,7 @@ namespace AvtokovchegApp.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Profile");
                 }
                 else
                 {
@@ -64,6 +64,10 @@ namespace AvtokovchegApp.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl = null) 
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View(new LoginViewModel { ReturnUrl = returnUrl });
         }
 
@@ -82,7 +86,7 @@ namespace AvtokovchegApp.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Profile");
                     }
                 }
                 else

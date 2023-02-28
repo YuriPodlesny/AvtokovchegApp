@@ -36,7 +36,6 @@ namespace Avtokovcheg
             builder.Services.AddScoped<IParkingSpaceRepository, ParkingSpaceRepository>();
             builder.Services.AddScoped<IAgreementRepository, AgreementRepository>();
             builder.Services.AddScoped<ICarRepository, CarRepository>();
-            builder.Services.AddScoped<IHolderCarRepository, HolderCarRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IRequestRepository, RequestRepository>();
             builder.Services.AddScoped<IDbInitializer, RoleInitializer>();

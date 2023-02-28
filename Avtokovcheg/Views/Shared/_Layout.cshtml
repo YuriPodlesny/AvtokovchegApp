@@ -25,6 +25,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Меню администратора</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Users" asp-action="Index">Пользователи</a></li>
+                                    <li><a class="dropdown-item" asp-controller="" asp-action="">Автомобили</a></li>
+                                    <li><a class="dropdown-item" asp-controller="" asp-action="">Договора</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="" asp-action="">Места</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="Roles" asp-action="Index">Роли</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <div>
@@ -51,7 +66,7 @@
                     @await Html.PartialAsync("../Home/_Contacts")
                 </div>
             </div>
-            
+
         </div>
 
     </footer>

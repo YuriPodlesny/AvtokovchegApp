@@ -1,10 +1,12 @@
 ﻿using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AvtokovchegApp.Controllers
 {
+    [Authorize]
     public class Profile : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -14,23 +16,27 @@ namespace AvtokovchegApp.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index(string id)
+        public async Task<IActionResult> Index()
         {
-            User user = await _userManager.FindByIdAsync(id);
-            if (user != null)
+            if (User.Identity.IsAuthenticated)
             {
-                var profile = new ProfileUserViewModel
+                User user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (user != null)
                 {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    PhoneNamber = user.PhoneNumber,
-                    Name = user.Name,
-                    Surname = user.Surname,
-                    Patronymic = user.Patronymic,
-                };
-                View(profile);
+                    var profile = new ProfileUserViewModel
+                    {
+                        Id = user.Id,
+                        UserName = user.UserName,
+                        PhoneNamber = user.PhoneNumber,
+                        Name = user.Name,
+                        Surname = user.Surname,
+                        Patronymic = user.Patronymic,
+                    };
+                    return View(profile);
+                }
+                return NotFound();
             }
-            return NotFound();
+            return RedirectToAction("Account/Login");
         }
     }
 }
