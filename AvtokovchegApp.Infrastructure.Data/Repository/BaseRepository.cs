@@ -19,9 +19,11 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             _context = context;
         }
 
-        public void Create(T entety)
+        public async Task<bool> Create(T entety)
         {
-            _context.Set<T>().AddAsync(entety);
+            await _context.Set<T>().AddAsync(entety);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public void Delete(int id)

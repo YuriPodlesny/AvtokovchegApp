@@ -10,8 +10,8 @@ namespace AvtokovchegApp.Domain.Core
     {
         public string CarBrand { get; set; }
         public string CarModel { get; set; }
-        public string? Namber { get; set; }
-        public int Space { get; set; }
+        public string Namber { get; set; } //обязательно
+        //public int Space { get; set; }
 
         public string HolderName { get; set; }
         public string HolderPatronymic { get; set; }

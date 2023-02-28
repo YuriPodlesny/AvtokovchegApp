@@ -9,7 +9,7 @@ namespace Avtokovcheg.Domain.Interfaces
     public interface IBaseRepository<T> : IDisposable
         where T : class
     {
-        void Create(T entety);
+        Task<bool> Create(T entety);
         void Delete(int id);
         void Update(T entity);
         void Save();
