@@ -10,8 +10,8 @@ namespace Avtokovcheg.Domain.Interfaces
         where T : class
     {
         Task<bool> Create(T entety);
-        void Delete(int id);
-        void Update(T entity);
+        Task<bool> Delete(int id);
+        Task<bool> Update(T entity);
         void Save();
         IEnumerable<T> GetAll();
         Task<T?> Get(int id);

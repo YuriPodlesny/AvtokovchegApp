@@ -1,12 +1,12 @@
-﻿@model CreateCarViewModel
+﻿@model EditCarViewModel
 
 @{
-    ViewBag.Title = "Добавить новый автомобиль";
+    ViewBag.Title = "Изменить данные об автомобиле";
 }
 
-<form asp-controller="Cars" asp-action="Create">
+<form asp-controller="Cars" asp-action="Edit" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="UserId" value="@ViewBag.UserId" />
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
     <div class="col-md-4">
         <label asp-for="CarBrand" class="form-label"></label>
         <input asp-for="CarBrand" class="form-control" />
@@ -38,6 +38,6 @@
         <span asp-validation-for="HolderPatronymic" class="text-danger"></span>
     </div>
     <div class="mt-3">
-        <input type="submit" value="Добавить" class="btn btn-primary" />
+        <input type="submit" value="Сохранить" class="btn btn-primary" />
     </div>
 </form>

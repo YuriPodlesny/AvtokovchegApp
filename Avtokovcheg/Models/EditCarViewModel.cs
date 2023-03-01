@@ -2,8 +2,11 @@
 
 namespace AvtokovchegApp.Models
 {
-    public class CreateCarViewModel
+    public class EditCarViewModel
     {
+        [Required]
+        public int Id { get; set;}
+
         [Required(ErrorMessage = "Укажите марку автомобиля")]
         [StringLength(50)]
         [DataType(DataType.Text)]
@@ -39,8 +42,5 @@ namespace AvtokovchegApp.Models
         [DataType(DataType.Text)]
         [Display(Name = "Фамилия владельца")]
         public string HolderSurname { get; set; }
-
-        [Required]
-        public string UserId { get; set; }
     }
 }

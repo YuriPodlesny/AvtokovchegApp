@@ -26,9 +26,12 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             return true;
         }
 
-        public void Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            _context.Set<Task<T?>>().Remove(Get(id));
+            T entity = await _context.Set<T>().FirstAsync(p => p.Id == id);
+            _context.Set<T>().Remove(entity);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<T?> Get(int id)
@@ -68,9 +71,11 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
             _context.SaveChangesAsync();
         }
 
-        public void Update(T entity)
+        public async Task<bool> Update(T entity)
         {
-            _context.Entry(entity).State = EntityState.Modified; 
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }
