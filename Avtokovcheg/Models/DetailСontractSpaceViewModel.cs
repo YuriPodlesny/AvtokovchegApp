@@ -11,7 +11,7 @@ namespace AvtokovchegApp.Models
         public DateTime DateStart { get; set; }
 
         [Display(Name = "Срок договора")]
-        public int DateEnd { get; set; }
+        public int? DateEnd { get; set; }
 
         [Display(Name = "Период оплаты договора")]
         public int Time { get; set; }

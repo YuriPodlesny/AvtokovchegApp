@@ -11,11 +11,13 @@ namespace AvtokovchegApp.Controllers
     public class СontractSpaceController : Controller
     {
         private readonly IСontractSpaceRepository _сontractSpace;
+        private readonly IParkingSpaceRepository _parkingSpace;
         private readonly UserManager<User> _userManager;
-        public СontractSpaceController(IСontractSpaceRepository сontractSpace, UserManager<User> userManager)
+        public СontractSpaceController(IСontractSpaceRepository сontractSpace, UserManager<User> userManager, IParkingSpaceRepository parkingSpace)
         {
             _сontractSpace = сontractSpace;
             _userManager = userManager;
+            _parkingSpace = parkingSpace;
         }
 
         public IActionResult Index()
@@ -31,24 +33,32 @@ namespace AvtokovchegApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateContractViewModel model)
+        public async Task<IActionResult> Create(CreateСontractSpaceViewModel model)
         {
             if (ModelState.IsValid)
             {
-                СontractSpace сontract = new СontractSpace
+                var parkingSpace = await _parkingSpace.Get(model.NamberSpace);
+                if (parkingSpace == null)
                 {
-                    DateStart = model.DateStart,
-                    DateEnd = model.DateEnd,
-                    Time = model.Time,
-                    NamberContract = model.NamberContract,
-                    NamberSpace = model.NamberSpace,
-                    UserId = model.UserId,
-                };
+                    return NotFound();
+                }
+                if (parkingSpace.IsFree)
+                {
+                    СontractSpace сontract = new СontractSpace
+                    {
+                        DateStart = model.DateStart,
+                        DateEnd = model.DateEnd,
+                        Time = model.Time,
+                        NamberContract = model.NamberContract,
+                        NamberSpace = model.NamberSpace,
+                        UserId = model.UserId,
+                    };
 
-                var result = await _сontractSpace.Create(сontract);
-                if (result == true)
-                {
-                    return RedirectToAction("Index");
+                    var result = await _сontractSpace.Create(сontract);
+                    if (result == true)
+                    {
+                        return RedirectToAction("Index");
+                    }
                 }
             }
             return View(model);

@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace AvtokovchegApp.Models
 {
-    public class CreateContractViewModel
+    public class CreateСontractSpaceViewModel
     {
         [Required(ErrorMessage = "Укажите дату договора")]
         [DataType(DataType.Date)]
@@ -14,7 +14,7 @@ namespace AvtokovchegApp.Models
         public DateTime DateStart { get; set; }
 
         [Display(Name = "Срок договора")]
-        public int DateEnd { get; set; }
+        public int? DateEnd { get; set; }
 
         [Required(ErrorMessage = "Укажите период оплаты договора")]
         [Display(Name = "Период оплаты договора")]
@@ -28,6 +28,7 @@ namespace AvtokovchegApp.Models
 
         [Required(ErrorMessage = "Укажите номер парковочного места")]
         [Display(Name = "Номер парковочного места")]
+        [Range(1, 567, ErrorMessage = "Номер парковочного места должен быть от 1 до 567")]
         public int NamberSpace { get; set; }
 
         [Required]

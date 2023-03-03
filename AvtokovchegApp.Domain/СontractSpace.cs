@@ -16,7 +16,7 @@ namespace AvtokovchegApp.Domain.Core
     public class СontractSpace : BaseClass
     {
         public DateTime DateStart { get; set; }
-        public int DateEnd { get; set; }
+        public int? DateEnd { get; set; }
         public int Time { get; set; }
         public string NamberContract { get; set; }
         public int NamberSpace { get; set; }

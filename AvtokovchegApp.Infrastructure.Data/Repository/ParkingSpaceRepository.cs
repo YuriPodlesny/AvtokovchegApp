@@ -47,7 +47,7 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
 
         public async Task<ParkingSpace> Get(int namber)
         {
-            return await db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
+            return await db.ParkingSpaces.FirstOrDefaultAsync(p => p.Namber == namber);
         }
 
         public IEnumerable<ParkingSpace> GetAll()
@@ -58,11 +58,6 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
         public ParkingSpace[] GetParkingSpaceByFloor(int floor)
         {
             return db.ParkingSpaces.Where(p => p.Floor == floor).ToArray();
-        }
-
-        public void OrderBy()
-        {
-
         }
     }
 }
