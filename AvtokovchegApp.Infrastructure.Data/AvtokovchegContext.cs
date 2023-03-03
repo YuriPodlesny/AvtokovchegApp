@@ -11,11 +11,13 @@ namespace AvtokovchegApp.Infrastructure.Data
     {
         public DbSet<ParkingSpace> ParkingSpaces { get; set; } = null!;
         public DbSet<Car> Cars { get; set; } = null!;
+        public DbSet<СontractSpace> ContractSpaces { get; set; } = null!;
 
 
         public AvtokovchegContext(DbContextOptions<AvtokovchegContext> options)
             : base(options)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
         }

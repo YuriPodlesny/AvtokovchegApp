@@ -9,6 +9,7 @@ namespace AvtokovchegApp.Domain.Core
         public string Surname { get; set; }
 
         public List<Car> Cars { get; set; } = new List<Car>();
-        
+        public List<СontractSpace> ContractSpaces { get; set; } = new List<СontractSpace>();
+
     }
 }

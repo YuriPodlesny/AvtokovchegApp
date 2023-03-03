@@ -15,7 +15,7 @@ namespace AvtokovchegApp.Components
 
         public IViewComponentResult Invoke(int floor)
         {
-            var parkingSpace = _parkingSpace.GetParkingSpaceFloor(floor);
+            var parkingSpace = _parkingSpace.GetParkingSpaceByFloor(floor);
             return View(parkingSpace);
         }
     }
