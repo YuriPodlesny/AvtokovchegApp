@@ -11,8 +11,15 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
 {
     public class CarRepository : BaseRepository<Car>, ICarRepository
     {
-        public CarRepository(AvtokovchegContext context) : base(context)
+        private readonly AvtokovchegContext _db;
+        public CarRepository(AvtokovchegContext context, AvtokovchegContext db) : base(context)
         {
+            _db = db;
+        }
+
+        public IQueryable<Car> GetCarByContractSpaceId(int contractSpaceId)
+        {
+            return _db.Cars.Where(x=> x.СontractSpaceId == contractSpaceId);
         }
     }
 }

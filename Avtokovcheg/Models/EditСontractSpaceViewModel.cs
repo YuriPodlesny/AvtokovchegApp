@@ -32,6 +32,10 @@ namespace AvtokovchegApp.Models
         [Range(1, 567, ErrorMessage = "Номер парковочного места должен быть от 1 до 567")]
         public int NamberSpace { get; set; }
 
+        [Required(ErrorMessage = "Укажите стоимость периода оплаты")]
+        [Display(Name = "Стоимость периода оплаты по догвору")]
+        public double Cost { get; set; }
+
         [Required]
         public string UserId { get; set; }
     }

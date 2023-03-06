@@ -16,8 +16,8 @@ namespace AvtokovchegApp.Domain.Core
         public string HolderPatronymic { get; set; }
         public string HolderSurname { get; set; }
 
-        public string UserId { get; set;}
-        public User User { get; set; }
+        public int СontractSpaceId { get; set; }
+        public СontractSpace СontractSpace { get; set; }
 
     }
 }

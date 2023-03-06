@@ -41,6 +41,7 @@ namespace AvtokovchegApp.Models
         public string HolderSurname { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public int СontractSpaceId { get; set; }
+
     }
 }

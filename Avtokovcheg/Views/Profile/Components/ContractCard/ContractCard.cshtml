@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AvtokovchegApp.Domain.Core.СontractSpace>
+
+
+@foreach (var contract in Model)
+{
+    <div class="list-group">
+        <div class="row list-group-item-warning mt-3">
+            <div class="col-sm">
+                <div>
+                    Номер договора: @contract.NamberContract
+                </div>
+            </div>
+            <div class="col-sm">
+                <div>
+                    Дата заключения договора: @contract.DateStart
+                </div>
+            </div>
+            <div class="col-sm">
+                <div>
+                    Дата следующего платежа: дата
+                </div>
+            </div>
+            <div class="col-sm">
+                <div>
+                    Номер места: @contract.NamberSpace
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="mt-3">
+                    <a class="btn btn-success">Оплатить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

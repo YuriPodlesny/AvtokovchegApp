@@ -9,8 +9,8 @@
 @if (!User.IsInRole("admin"))
 {
     <h2>@Model.Name @Model.Patronymic добро пожаловать в личный кабинет</h2>
-    <div class="grid" style="--bs-columns: 18; --bs-gap: .5rem;">
-        <div style="grid-column: span 14;">
+    <div class="row">
+        <div class="col-3">
             <h4>Информация о пользователе</h4>
             <div></div>
             <div>@Model.Name</div>
@@ -20,7 +20,8 @@
             <a asp-action="" class="btn btn-sm btn-success">Редактировать</a>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-9">
+            @await Component.InvokeAsync("ContractCard", Model.Id)
         </div>
     </div>
 }
@@ -28,8 +29,7 @@
 {
     <h2>Добропожаловать в личный кабинет администратора</h2>
     <div class="container">
-        <div >
-
+        <div>
         </div>
     </div>
 }

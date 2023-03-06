@@ -9,5 +9,7 @@ namespace Avtokovcheg.Domain.Interfaces
 {
     public interface ICarRepository : IBaseRepository<Car>
     {
+        IQueryable<Car> GetCarByContractSpaceId(int contractSpaceId);
+
     }
 }

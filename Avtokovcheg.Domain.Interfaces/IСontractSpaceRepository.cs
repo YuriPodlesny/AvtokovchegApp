@@ -9,5 +9,6 @@ namespace Avtokovcheg.Domain.Interfaces
 {
     public interface IСontractSpaceRepository : IBaseRepository<СontractSpace>
     {
+        IEnumerable<СontractSpace> GetContractByUserId(string userId);
     }
 }

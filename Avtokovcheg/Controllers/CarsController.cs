@@ -11,12 +11,14 @@ namespace AvtokovchegApp.Controllers
     public class CarsController : Controller
     {
         private readonly ICarRepository _carRepository;
+        private readonly IСontractSpaceRepository _сontractSpace;
         private readonly UserManager<User> _userManager;
 
-        public CarsController(ICarRepository carRepository, UserManager<User> userManager)
+        public CarsController(ICarRepository carRepository, UserManager<User> userManager, IСontractSpaceRepository сontractSpace)
         {
             _carRepository = carRepository;
             _userManager = userManager;
+            _сontractSpace = сontractSpace;
         }
 
 
@@ -26,9 +28,9 @@ namespace AvtokovchegApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create(string userId)
+        public IActionResult Create(string contractId)
         {
-            ViewBag.UserId = userId;
+            ViewBag.ContractId = contractId;
             return View();
         }
 
@@ -45,7 +47,7 @@ namespace AvtokovchegApp.Controllers
                     HolderName = model.HolderName,
                     HolderPatronymic = model.HolderPatronymic,
                     HolderSurname = model.HolderSurname,
-                    UserId = model.UserId
+                    СontractSpaceId = model.СontractSpaceId,
                 };
                 var result = await _carRepository.Create(car);
                 if (result == true)
@@ -103,11 +105,11 @@ namespace AvtokovchegApp.Controllers
             return View(model);
         }
 
-        [HttpGet]
+        [HttpGet]//Исправить
         public async Task<IActionResult> Detail(int carId)
         {
             Car? car = await _carRepository.Get(carId);
-            User user = await _userManager.FindByIdAsync(car.UserId);
+            User user = null;
             if (car == null || user == null)
             {
                 return NotFound();

@@ -52,6 +52,7 @@ namespace AvtokovchegApp.Controllers
                         NamberContract = model.NamberContract,
                         NamberSpace = model.NamberSpace,
                         UserId = model.UserId,
+                        Cost= model.Cost,
                     };
 
                     var result = await _сontractSpace.Create(сontract);
@@ -80,6 +81,7 @@ namespace AvtokovchegApp.Controllers
                 Time = car.Time,
                 NamberContract = car.NamberContract,
                 NamberSpace = car.NamberSpace,
+                Cost = car.Cost,
                 UserId = car.UserId,
             };
             return View(contract);
@@ -99,6 +101,7 @@ namespace AvtokovchegApp.Controllers
                     сontractSpace.Time = model.Time;
                     сontractSpace.NamberContract = model.NamberContract;
                     сontractSpace.NamberSpace = model.NamberSpace;
+                    сontractSpace.Cost = model.Cost;
                     сontractSpace.UserId = model.UserId;
 
                     var result = await _сontractSpace.Update(сontractSpace);
@@ -128,6 +131,7 @@ namespace AvtokovchegApp.Controllers
                 Time = contract.Time,
                 NamberContract = contract.NamberContract,
                 NamberSpace = contract.NamberSpace,
+                Cost= contract.Cost,
                 UserName = user.UserName,
                 UserSurname = user.Surname,
                 UserPatronymic = user.Patronymic,

@@ -22,6 +22,9 @@ namespace AvtokovchegApp.Models
         [Display(Name = "Номер парковочного места")]
         public int NamberSpace { get; set; }
 
+        [Display(Name = "Стоимость периода оплаты по догвору")]
+        public double Cost { get; set; }
+
         [Display(Name = "Имя арендатора")]
         public string UserName { get; set; }
 
