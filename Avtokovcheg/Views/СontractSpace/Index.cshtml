@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AvtokovchegApp.Domain.Core.СontractSpace>
+
+@{
+    ViewBag.Title = "Договора пользователей";
+}
+<h2>Список договоров</h2>
+
+<table class="table">
+    <tr><th>Номер договора</th><th>Номер места</th><th>Дата договора</th><th>Срок договора(дни)</th><th>Период оплаты(дни)</th><th>Стоимость</th></tr>
+    @foreach (var contract in Model)
+    {
+        <tr>
+            <td>@contract.NamberContract</td>
+            <td>@contract.NamberSpace</td>
+            <td>@contract.DateStart.ToShortDateString()</td>
+            <td>@contract.DateEnd.ToShortDateString()</td>
+            <td>@contract.Time</td>
+            <td>@contract.Cost</td>
+            <td>
+                <form method="post" asp-controller="СontractSpace" asp-action="Delete" asp-route-contractId="@contract.Id">
+                    <a class="btn btn-sm btn-primary" asp-controller="СontractSpace" asp-action="Edit" asp-route-contractId="@contract.Id">Изменить</a>
+                    <a class="btn btn-sm btn-success" asp-controller="СontractSpace" asp-action="Detail" asp-route-contractId="@contract.Id">Подробнее</a>
+                    <a class="btn btn-sm btn-info" asp-controller="Cars" asp-action="Create" asp-route-contractId="@contract.Id">Добавить автомобиль</a>
+                    <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AvtokovchegApp.Domain.Core.Car>
+
+@{
+    ViewBag.Title = "Список список автомобилей";
+}
+
+<h2>Список автомобилей</h2>
+<table class="table">
+    <tr><th>Марка</th><th>Бренд</th><th>Номер</th></tr>
+    @foreach (var car in Model)
+    {
+        <tr>
+            <td>@car.CarBrand</td>
+            <td>@car.CarModel</td>
+            <td>@car.Namber</td>
+            <td>
+                <form method="post" asp-controller="Cars" asp-action="Delete" asp-route-carId="@car.Id">
+                    <a class="btn btn-sm btn-primary" asp-controller="Cars" asp-action="Edit" asp-route-carId="@car.Id">Изменить</a>
+                    <a class="btn btn-sm btn-success" asp-controller="Cars" asp-action="Detail" asp-route-carId="@car.Id">Подробнее</a>
+                    <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

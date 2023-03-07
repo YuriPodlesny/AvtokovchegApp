@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvtokovchegApp.Infrastructure.Data
+namespace AvtokovchegApp.Infrastructure.Data.Repository
 {
     public class ParkingSpaceRepository : IParkingSpaceRepository
     {
-        private readonly AvtokovchegConxext db;
+        private readonly AvtokovchegContext db;
 
-        public ParkingSpaceRepository(AvtokovchegConxext db)
+        public ParkingSpaceRepository(AvtokovchegContext db)
         {
             this.db = db;
         }
@@ -38,24 +38,26 @@ namespace AvtokovchegApp.Infrastructure.Data
             GC.SuppressFinalize(this);
         }
         #endregion
-        public void EditParkingSpace(ParkingSpace parkingSpace)
+        public async Task<bool> Update(ParkingSpace parkingSpace)
         {
             db.Entry(parkingSpace).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+            return true;
         }
 
-        public Task<ParkingSpace> GetParkingSpace(int namber)
+        public async Task<ParkingSpace> Get(int namber)
         {
-            return db.ParkingSpaces.FirstAsync(p => p.Namber == namber);
+            return await db.ParkingSpaces.FirstOrDefaultAsync(p => p.Namber == namber);
         }
 
-        public Task<ParkingSpace[]> GetParkingSpacesToArray()
+        public IEnumerable<ParkingSpace> GetAll()
         {
-            return db.ParkingSpaces.ToArrayAsync();
-        }
-        public ParkingSpace[] GetParkingSpaceFloor(int floor)
-        {
-            return db.ParkingSpaces.Where(p=> p.Floor == floor).ToArray();
+            return db.ParkingSpaces.AsQueryable();
         }
 
+        public ParkingSpace[] GetParkingSpaceByFloor(int floor)
+        {
+            return db.ParkingSpaces.Where(p => p.Floor == floor).ToArray();
+        }
     }
 }

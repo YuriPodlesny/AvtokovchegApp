@@ -1,0 +1,38 @@
+﻿@model CreateСontractSpaceViewModel
+
+@{
+    ViewBag.Title = "Добавить новый договор";
+}
+
+<form asp-controller="СontractSpace" asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="UserId" value="@ViewBag.UserId" />
+    <div class="col-md-4">
+        <label asp-for="NamberContract" class="form-label"></label>
+        <input asp-for="NamberContract" class="form-control" />
+        <span asp-validation-for="NamberContract" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="NamberSpace" class="form-label"></label>
+        <input asp-for="NamberSpace" class="form-control" />
+        <span asp-validation-for="NamberSpace" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="DateStart" class="form-label"></label>
+        <input asp-for="DateStart" class="form-control" />
+        <span asp-validation-for="DateStart" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Time" class="form-label"></label>
+        <input asp-for="Time" class="form-control" />
+        <span asp-validation-for="Time" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Cost" class="form-label"></label>
+        <input asp-for="Cost" class="form-control" />
+        <span asp-validation-for="Cost" class="text-danger"></span>
+    </div>
+    <div class="mt-3">
+        <input type="submit" value="Добавить" class="btn btn-primary" />
+    </div>
+</form>

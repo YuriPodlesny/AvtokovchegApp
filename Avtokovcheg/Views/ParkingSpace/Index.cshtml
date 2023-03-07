@@ -1,0 +1,32 @@
+﻿@using AvtokovchegApp.Infrastructure.Business
+@model IEnumerable<AvtokovchegApp.Domain.ParkingSpace>
+
+@{
+    ViewBag.Title = "Места на паркинге";
+}
+
+<h2>Список мест на паркинге</h2>
+<table class="table">
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.FloorSort">Этаж</a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.NamberSort">Номер</a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.IsFreeSort">Статус</a>
+        </th>
+    </tr>
+    @foreach (var space in Model)
+    {
+        <tr>
+            <td>@space.Floor</td>
+            <td>@space.Namber</td>
+            <td>@space.IsFree</td>
+            <td>
+                <a asp-controller="ParkingSpace" asp-action="ChangeStatus" asp-route-spaceId="@space.Namber" class="btn btn-sm btn-success">Изменить статус</a>
+            </td>
+        </tr>
+    }
+</table>

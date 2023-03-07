@@ -1,5 +1,8 @@
 ﻿using Avtokovcheg.Domain.Interfaces;
-using Avtokovcheg.Models;
+using AvtokovchegApp.Domain;
+using AvtokovchegApp.Domain.Core;
+using AvtokovchegApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,7 +10,7 @@ namespace Avtokovcheg.Controllers
 {
     public class HomeController : Controller
     {
-        IParkingSpaceRepository _parkingSpace;
+        private readonly IParkingSpaceRepository _parkingSpace;
 
         public HomeController(IParkingSpaceRepository parkingSpace)
         {
@@ -19,16 +22,33 @@ namespace Avtokovcheg.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Privacy()
+        public IActionResult Authenticated()
         {
-            return View();
+            return PartialView("_Authenticated");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public async Task<IActionResult> Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[Authorize]
+        //[HttpGet]
+        //public async Task<IActionResult> Request(int namber)
+        //{
+
+        //    var parkingSpace = await _parkingSpace.GetAsync(namber);
+        //    ViewBag.parkingSpace = parkingSpace;
+
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> Request()
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
+
+
 
         protected override void Dispose(bool disposing)
         {

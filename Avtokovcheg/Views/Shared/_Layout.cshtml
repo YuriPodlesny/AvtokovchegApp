@@ -20,12 +20,35 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Оплата</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Правила паркинга</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Контакты</a>
+                        </li>
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Меню администратора</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Users" asp-action="Index">Пользователи</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Cars" asp-action="Index">Автомобили</a></li>
+                                    <li><a class="dropdown-item" asp-controller="СontractSpace" asp-action="Index">Договора</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="ParkingSpace" asp-action="Index">Места</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="Roles" asp-action="Index">Роли</a></li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
+                </div>
+                <div>
+                    @{
+                        await Html.RenderPartialAsync("_Authenticated");
+                    }
                 </div>
             </div>
         </nav>
@@ -43,10 +66,10 @@
                     &copy; 2023 - Avtokovcheg - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                 </div>
                 <div class="col">
-                    @await Html.PartialAsync("_Contacts")
+                    @await Html.PartialAsync("../Home/_Contacts")
                 </div>
             </div>
-            
+
         </div>
 
     </footer>

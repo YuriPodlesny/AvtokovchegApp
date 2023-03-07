@@ -1,0 +1,32 @@
+﻿@model DetailCarViewModel
+
+@{
+    ViewBag.Title = "Подробнее об автомобиле";
+}
+
+<form class="row">
+    <div class="col-md-4">
+        <label asp-for="CarBrand" class="form-label"></label>
+        <input asp-for="CarBrand" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <label asp-for="CarModel" class="form-label"></label>
+        <input asp-for="CarModel" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Namber" class="form-label"></label>
+        <input asp-for="Namber" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <label asp-for="HolderSurname" class="form-label"></label>
+        <input asp-for="HolderSurname" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <label asp-for="HolderName" class="form-label"></label>
+        <input asp-for="HolderName" class="form-control" />
+    </div>
+    <div class="col-md-4">
+        <label asp-for="HolderPatronymic" class="form-label"></label>
+        <input asp-for="HolderPatronymic" class="form-control" />
+    </div>
+</form>

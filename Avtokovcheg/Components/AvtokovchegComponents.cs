@@ -6,7 +6,7 @@ namespace AvtokovchegApp.Components
 {
     public class ParkingSpaceViewComponent : ViewComponent
     {
-        IParkingSpaceRepository _parkingSpace;
+        private readonly IParkingSpaceRepository _parkingSpace;
 
         public ParkingSpaceViewComponent(IParkingSpaceRepository parkingSpace)
         {
@@ -15,7 +15,7 @@ namespace AvtokovchegApp.Components
 
         public IViewComponentResult Invoke(int floor)
         {
-            var parkingSpace = _parkingSpace.GetParkingSpaceFloor(floor);
+            var parkingSpace = _parkingSpace.GetParkingSpaceByFloor(floor);
             return View(parkingSpace);
         }
     }
