@@ -105,12 +105,11 @@ namespace AvtokovchegApp.Controllers
             return View(model);
         }
 
-        [HttpGet]//Исправить
+        [HttpGet]
         public async Task<IActionResult> Detail(int carId)
         {
             Car? car = await _carRepository.Get(carId);
-            User user = null;
-            if (car == null || user == null)
+            if (car == null)
             {
                 return NotFound();
             }
@@ -122,10 +121,6 @@ namespace AvtokovchegApp.Controllers
                 HolderName = car.HolderName,
                 HolderPatronymic = car.HolderPatronymic,
                 HolderSurname = car.HolderSurname,
-                UserName = user.UserName,
-                UserSurname = user.Surname,
-                UserPatronymic = user.Patronymic,
-                UserPhoneNamber = user.PhoneNumber,
             };
             return View(model);
         }

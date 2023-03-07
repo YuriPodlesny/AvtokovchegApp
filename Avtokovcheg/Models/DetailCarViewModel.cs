@@ -14,19 +14,6 @@ namespace AvtokovchegApp.Models
         [Display(Name = "Номер автомобиля")]
         public string Namber { get; set; }
 
-        [Display(Name = "Имя арендатора")]
-        public string UserName { get; set; }
-
-        [Display(Name = "Отчество арендатора")]
-        public string UserPatronymic { get; set; }
-
-        [Display(Name = "Фамилия арендатора")]
-        public string UserSurname { get; set; }
-
-        [Display(Name = "Номер телефона арендатора")]
-        public string UserPhoneNamber { get; set; }
-
-
         [Display(Name = "Имя владельца")]
         public string HolderName { get; set; }
 
@@ -35,7 +22,5 @@ namespace AvtokovchegApp.Models
 
         [Display(Name = "Фамилия владельца")]
         public string HolderSurname { get; set; }
-
-
     }
 }

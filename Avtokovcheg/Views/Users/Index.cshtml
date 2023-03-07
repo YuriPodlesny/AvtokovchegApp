@@ -19,7 +19,6 @@
                 <form method="post" asp-controller="Users" asp-action="Delete" asp-route-userName="@user.UserName">
                     <a class="btn btn-sm btn-primary" asp-controller="Users" asp-action="Edit" asp-route-userName="@user.UserName">Изменить</a>
                     <a class="btn btn-sm btn-warning" asp-controller="Users" asp-action="ChangePassword" asp-route-userName="@user.UserName">Сменить пароль</a>
-                    <a class="btn btn-sm btn-success" asp-controller="Cars" asp-action="Create" asp-route-userId="@user.Id">Добавить автомобиль</a>
                     <a class="btn btn-sm btn-secondary" asp-controller="СontractSpace" asp-action="Create" asp-route-userId="@user.Id">Добавить договор</a>
                     <button type="submit" class="btn btn-sm btn-danger">Удалить</button>
                 </form>

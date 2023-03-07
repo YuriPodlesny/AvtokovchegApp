@@ -12,17 +12,17 @@
             </div>
             <div class="col-sm">
                 <div>
-                    Дата заключения договора: @contract.DateStart
-                </div>
-            </div>
-            <div class="col-sm">
-                <div>
-                    Дата следующего платежа: дата
-                </div>
-            </div>
-            <div class="col-sm">
-                <div>
                     Номер места: @contract.NamberSpace
+                </div>
+            </div>
+            <div class="col-sm">
+                <div>
+                    Дата следующего платежа: @contract.DateEnd.ToShortDateString()
+                </div>
+            </div>
+            <div class="col-sm">
+                <div>
+                    Сумма оплаты: @contract.Cost
                 </div>
             </div>
             <div class="col-sm">

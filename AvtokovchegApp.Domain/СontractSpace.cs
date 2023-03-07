@@ -10,13 +10,26 @@ namespace AvtokovchegApp.Domain.Core
 {
     /// <summary>
     /// DateStart - дата заключения договора
-    /// DateEnd - срок договора в днях (если договор не бессрочный)
+    /// DateEnd - дата конца периода оплаты
     /// Time - периодичность оплаты договора в днях, периодичность считается от даты заключения договора
     /// </summary>
     public class СontractSpace : BaseClass
     {
         public DateTime DateStart { get; set; }
-        public int? DateEnd { get; set; }
+
+        private DateTime dateEnd;
+        public DateTime DateEnd
+        {
+            get 
+            {
+                dateEnd = DateStart.AddDays(Time);
+                return dateEnd; 
+            }
+            set
+            {
+                dateEnd = value;
+            }
+        }
         public int Time { get; set; }
         public string NamberContract { get; set; }
         public int NamberSpace { get; set; }

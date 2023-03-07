@@ -47,7 +47,6 @@ namespace AvtokovchegApp.Controllers
                     СontractSpace сontract = new СontractSpace
                     {
                         DateStart = model.DateStart,
-                        DateEnd = model.DateEnd,
                         Time = model.Time,
                         NamberContract = model.NamberContract,
                         NamberSpace = model.NamberSpace,
@@ -77,7 +76,6 @@ namespace AvtokovchegApp.Controllers
             {
                 Id = contractId,
                 DateStart = car.DateStart,
-                DateEnd = car.DateEnd,
                 Time = car.Time,
                 NamberContract = car.NamberContract,
                 NamberSpace = car.NamberSpace,
@@ -97,7 +95,6 @@ namespace AvtokovchegApp.Controllers
                 {
                     сontractSpace.Id = model.Id;
                     сontractSpace.DateStart = model.DateStart;
-                    сontractSpace.DateEnd = model.DateEnd;
                     сontractSpace.Time = model.Time;
                     сontractSpace.NamberContract = model.NamberContract;
                     сontractSpace.NamberSpace = model.NamberSpace;

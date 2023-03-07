@@ -7,11 +7,11 @@ namespace AvtokovchegApp.Models
     {
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Дата договора")]
+        [Display(Name = "Дата начала периода оплаты")]
         public DateTime DateStart { get; set; }
 
-        [Display(Name = "Срок договора")]
-        public int? DateEnd { get; set; }
+        [Display(Name = "Дата завершения периода оплаты")]
+        public DateTime DateEnd { get; set; }
 
         [Display(Name = "Период оплаты договора")]
         public int Time { get; set; }

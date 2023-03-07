@@ -7,14 +7,14 @@ namespace AvtokovchegApp.Models
 {
     public class CreateСontractSpaceViewModel
     {
-        [Required(ErrorMessage = "Укажите дату договора")]
+        [Required(ErrorMessage = "Укажите дату начала периода оплаты")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Дата договора")]
+        [Display(Name = "Дата начала периода оплаты")]
         public DateTime DateStart { get; set; }
 
-        [Display(Name = "Срок договора")]
-        public int? DateEnd { get; set; }
+        //[Display(Name = "Срок договора")]
+        //public DateTime DateEnd { get; set; }
 
         [Required(ErrorMessage = "Укажите период оплаты договора")]
         [Display(Name = "Период оплаты договора")]
