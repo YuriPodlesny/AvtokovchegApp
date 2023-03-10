@@ -1,6 +1,6 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain.Core;
+﻿using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Models;
+using AvtokovchegApp.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,12 +11,10 @@ namespace AvtokovchegApp.Controllers
     public class Profile : Controller
     {
         private readonly UserManager<User> _userManager;
-        private readonly IСontractSpaceRepository _сontractSpace;
 
         public Profile(UserManager<User> userManager, IСontractSpaceRepository сontractSpace)
         {
             _userManager = userManager;
-            _сontractSpace = сontractSpace;
         }
 
         public async Task<IActionResult> Index()
@@ -41,11 +39,5 @@ namespace AvtokovchegApp.Controllers
             }
             return RedirectToAction("Account/Login");
         }
-
-        //public IActionResult ContractCard(string userId)
-        //{
-        //    var result = _сontractSpace.GetContractByUserId(userId);
-        //    return View(result);
-        //}
     }
 }

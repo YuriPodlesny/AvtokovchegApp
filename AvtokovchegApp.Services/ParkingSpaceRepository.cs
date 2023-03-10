@@ -1,13 +1,9 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain;
+﻿using AvtokovchegApp.Domain;
+using AvtokovchegApp.Infrastructure.Data;
+using AvtokovchegApp.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AvtokovchegApp.Infrastructure.Data.Repository
+namespace AvtokovchegApp.Services
 {
     public class ParkingSpaceRepository : IParkingSpaceRepository
     {

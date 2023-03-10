@@ -1,13 +1,7 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain.Core;
+﻿using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Models;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using System.Security.Claims;
 
 namespace AvtokovchegApp.Controllers
 {
@@ -62,7 +56,7 @@ namespace AvtokovchegApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login(string returnUrl = null) 
+        public IActionResult Login(string returnUrl = null)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -75,12 +69,12 @@ namespace AvtokovchegApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if(ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(model.PhoneNumber, model.Password, model.RememberMe, false);
-                if(result.Succeeded) 
+                if (result.Succeeded)
                 {
-                    if(!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl)) 
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
                         return Redirect(model.ReturnUrl);
                     }

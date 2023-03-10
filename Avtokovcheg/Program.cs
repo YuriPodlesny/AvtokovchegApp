@@ -1,14 +1,10 @@
-using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain;
 using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Infrastructure.Data;
 using AvtokovchegApp.Infrastructure.Data.DbInitializer;
-using AvtokovchegApp.Infrastructure.Data.Repository;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Hosting;
+using AvtokovchegApp.Services;
+using AvtokovchegApp.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace Avtokovcheg
 {
@@ -36,7 +32,7 @@ namespace Avtokovcheg
             builder.Services.AddScoped<IParkingSpaceRepository, ParkingSpaceRepository>();
             builder.Services.AddScoped<ICarRepository, CarRepository>();
             builder.Services.AddScoped<IÑontractSpaceRepository, ÑontractSpaceRepository>();
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
             builder.Services.AddScoped<IRequestRepository, RequestRepository>();
             builder.Services.AddScoped<IDbInitializer, RoleInitializer>();
 

@@ -1,6 +1,6 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Infrastructure.Business;
+﻿using AvtokovchegApp.Infrastructure.Business;
 using AvtokovchegApp.Models;
+using AvtokovchegApp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AvtokovchegApp.Controllers

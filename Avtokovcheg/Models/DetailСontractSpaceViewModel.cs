@@ -23,7 +23,7 @@ namespace AvtokovchegApp.Models
         public int NamberSpace { get; set; }
 
         [Display(Name = "Стоимость периода оплаты по догвору")]
-        public double Cost { get; set; }
+        public decimal Cost { get; set; }
 
         [Display(Name = "Имя арендатора")]
         public string UserName { get; set; }

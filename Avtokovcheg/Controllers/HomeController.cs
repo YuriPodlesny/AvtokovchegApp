@@ -1,10 +1,5 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain;
-using AvtokovchegApp.Domain.Core;
-using AvtokovchegApp.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using AvtokovchegApp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Avtokovcheg.Controllers
 {
