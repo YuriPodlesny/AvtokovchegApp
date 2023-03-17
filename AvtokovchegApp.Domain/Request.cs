@@ -10,6 +10,11 @@ namespace AvtokovchegApp.Domain.Core
     {
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
+        public int NamberSpace { get; set; }
+        public RequestState State { get; set; } = RequestState.New;
+
+        public string UserId { get; set; }
+        public User? User { get; set; }
        
     }
 }

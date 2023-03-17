@@ -27,9 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Avtokovcheg.Domain.Interfaces\Avtokovcheg.Domain.Interfaces.csproj" />
     <ProjectReference Include="..\AvtokovchegApp.Infrastructure.Business\AvtokovchegApp.Infrastructure.Business.csproj" />
     <ProjectReference Include="..\AvtokovchegApp.Infrastructure.Data\AvtokovchegApp.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\AvtokovchegApp.Services.Interfaces\AvtokovchegApp.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\AvtokovchegApp.Services\AvtokovchegApp.Services.csproj" />
   </ItemGroup>
 
 </Project>

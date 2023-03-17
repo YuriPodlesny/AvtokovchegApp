@@ -1,6 +1,6 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain.Core;
+﻿using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Models;
+using AvtokovchegApp.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -132,7 +132,7 @@ namespace AvtokovchegApp.Controllers
             if (car != null)
             {
                 var result = await _carRepository.Delete(carId);
-                if(result == true)
+                if (result == true)
                 {
                     return RedirectToAction("Index");
                 }

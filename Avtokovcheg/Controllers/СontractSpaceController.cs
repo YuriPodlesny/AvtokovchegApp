@@ -1,13 +1,13 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain.Core;
-using AvtokovchegApp.Infrastructure.Data.Repository;
+﻿using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Models;
+using AvtokovchegApp.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics.Contracts;
 
 namespace AvtokovchegApp.Controllers
 {
+    [Authorize(Roles ="admin")]
     public class СontractSpaceController : Controller
     {
         private readonly IСontractSpaceRepository _сontractSpace;
@@ -51,7 +51,7 @@ namespace AvtokovchegApp.Controllers
                         NamberContract = model.NamberContract,
                         NamberSpace = model.NamberSpace,
                         UserId = model.UserId,
-                        Cost= model.Cost,
+                        Cost = model.Cost,
                     };
 
                     var result = await _сontractSpace.Create(сontract);
@@ -128,7 +128,7 @@ namespace AvtokovchegApp.Controllers
                 Time = contract.Time,
                 NamberContract = contract.NamberContract,
                 NamberSpace = contract.NamberSpace,
-                Cost= contract.Cost,
+                Cost = contract.Cost,
                 UserName = user.UserName,
                 UserSurname = user.Surname,
                 UserPatronymic = user.Patronymic,

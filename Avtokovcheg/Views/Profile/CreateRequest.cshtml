@@ -1,0 +1,16 @@
+﻿@model CreateRequestViewModel
+
+@{
+    ViewBag.Title = "Заявка на аренду парковочного места";
+}
+
+<h2>Подать заявку на аренду парковочного места?</h2>
+<form asp-controller="Profile" asp-action="CreateRequest">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="NamberSpace" value="@Model.NamberSpace" />
+    <input type="hidden" asp-for="UserId" value="@Model.UserId" />
+    <div>
+        <input type="submit" value="Подтвердить подачу заявки" class="btn btn-success" />
+        <a class="btn btn-primary">Отменить</a>
+    </div>
+</form>

@@ -1,7 +1,7 @@
 ﻿using AvtokovchegApp.Domain;
 using System.Threading.Tasks;
 
-namespace Avtokovcheg.Domain.Interfaces
+namespace AvtokovchegApp.Services.Interfaces
 {
     public interface IParkingSpaceRepository : IDisposable
     {

@@ -1,13 +1,9 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain.Core;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AvtokovchegApp.Domain.Core;
+using AvtokovchegApp.Infrastructure.Data;
+using AvtokovchegApp.Infrastructure.Data.Repository;
+using AvtokovchegApp.Services.Interfaces;
 
-namespace AvtokovchegApp.Infrastructure.Data.Repository
+namespace AvtokovchegApp.Services
 {
     public class СontractSpaceRepository : BaseRepository<СontractSpace>, IСontractSpaceRepository
     {
@@ -19,7 +15,7 @@ namespace AvtokovchegApp.Infrastructure.Data.Repository
 
         public IEnumerable<СontractSpace> GetContractByUserId(string userId)
         {
-            return  _db.ContractSpaces.Where(x => x.UserId == userId);
+            return _db.ContractSpaces.Where(x => x.UserId == userId);
         }
 
     }

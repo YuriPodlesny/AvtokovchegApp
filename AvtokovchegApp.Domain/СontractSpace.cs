@@ -33,7 +33,7 @@ namespace AvtokovchegApp.Domain.Core
         public int Time { get; set; }
         public string NamberContract { get; set; }
         public int NamberSpace { get; set; }
-        public double Cost { get; set; }
+        public decimal Cost { get; set; } 
 
         public string UserId { get; set; }
         public User User { get; set; }

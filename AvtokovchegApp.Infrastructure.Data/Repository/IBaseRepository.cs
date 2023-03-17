@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avtokovcheg.Domain.Interfaces
+namespace Avtokovcheg.Infrastructure.Data
 {
     public interface IBaseRepository<T> : IDisposable
         where T : class

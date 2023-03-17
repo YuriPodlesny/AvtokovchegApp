@@ -1,5 +1,4 @@
-﻿using Avtokovcheg.Domain.Interfaces;
-using AvtokovchegApp.Domain;
+﻿using AvtokovchegApp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AvtokovchegApp.Components

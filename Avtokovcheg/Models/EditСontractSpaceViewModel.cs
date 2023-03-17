@@ -34,7 +34,7 @@ namespace AvtokovchegApp.Models
 
         [Required(ErrorMessage = "Укажите стоимость периода оплаты")]
         [Display(Name = "Стоимость периода оплаты по догвору")]
-        public double Cost { get; set; }
+        public decimal Cost { get; set; }
 
         [Required]
         public string UserId { get; set; }
