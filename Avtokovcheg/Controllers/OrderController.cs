@@ -1,8 +1,10 @@
 ﻿using AvtokovchegApp.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AvtokovchegApp.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;
@@ -17,8 +19,5 @@ namespace AvtokovchegApp.Controllers
 
             return Index();
         }
-
-
-
     }
 }

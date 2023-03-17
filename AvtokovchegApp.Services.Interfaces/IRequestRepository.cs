@@ -5,5 +5,6 @@ namespace AvtokovchegApp.Services.Interfaces
 {
     public interface IRequestRepository : IBaseRepository<Request>
     {
+        IQueryable<Request> GetRequestByState(RequestState state);
     }
 }

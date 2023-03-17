@@ -22,29 +22,6 @@ namespace Avtokovcheg.Controllers
             return PartialView("_Authenticated");
         }
 
-        //[Authorize]
-        //[HttpGet]
-        //public async Task<IActionResult> Request(int namber)
-        //{
-
-        //    var parkingSpace = await _parkingSpace.GetAsync(namber);
-        //    ViewBag.parkingSpace = parkingSpace;
-
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Request()
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View();
-        //}
-
-
-
         protected override void Dispose(bool disposing)
         {
             _parkingSpace.Dispose();

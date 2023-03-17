@@ -1,0 +1,14 @@
+﻿@model IQueryable<AvtokovchegApp.Domain.Core.Request>
+
+<h3>Новые заявки</h3>
+
+<table class="table">
+    <tr><th>Дата</th><th>Номер места</th></tr>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@request.CreatedAt</td>
+            <td>@request.NamberSpace</td>
+        </tr>
+    }
+</table>

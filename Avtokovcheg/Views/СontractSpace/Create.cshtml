@@ -4,6 +4,7 @@
     ViewBag.Title = "Добавить новый договор";
 }
 
+<h2>Добавить новый договор</h2>
 <form asp-controller="СontractSpace" asp-action="Create">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="UserId" value="@ViewBag.UserId" />

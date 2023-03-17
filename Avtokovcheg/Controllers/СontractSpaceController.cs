@@ -1,11 +1,13 @@
 ﻿using AvtokovchegApp.Domain.Core;
 using AvtokovchegApp.Models;
 using AvtokovchegApp.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AvtokovchegApp.Controllers
 {
+    [Authorize(Roles ="admin")]
     public class СontractSpaceController : Controller
     {
         private readonly IСontractSpaceRepository _сontractSpace;

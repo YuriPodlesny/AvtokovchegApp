@@ -38,7 +38,7 @@ namespace Avtokovcheg
 
             builder.Services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = "/Admin/login";
+                options.LoginPath = "/Account/Login";
                 options.AccessDeniedPath = "/Home/AccessDenied";
             });
 
